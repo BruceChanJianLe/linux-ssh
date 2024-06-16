@@ -24,10 +24,16 @@ ssh-copy-id ~/.ssh/id_cjl username@remote_server_ip
 ```bash
 # SSH to remote target
 ssh username@remote_server_ip
-# Edit the sudoer file with your favourite 
+```
+
+```bash
+# Edit the sudoer file with your favourite editor
 sudoedit /etc/sudoers
 # Add rule for your sudo access
 yourusername    ALL=(ALL:ALL) ALL
+```
+
+```bash
 # Save, exit and try
 sudo -l
 ```
