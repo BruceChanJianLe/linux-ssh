@@ -16,5 +16,18 @@ ssh-add
 ### Password-less Remote Access
 
 ```bash
-ssh-copy-id ~/.ssh/id_cjl remote-user@ip
+ssh-copy-id ~/.ssh/id_cjl username@remote_server_ip
+```
+
+### Pasword-less Remote with Sudo
+
+```bash
+# SSH to remote target
+ssh username@remote_server_ip
+# Edit the sudoer file with your favourite 
+sudoedit /etc/sudoers
+# Add rule for your sudo access
+yourusername    ALL=(ALL:ALL) ALL
+# Save, exit and try
+sudo -l
 ```
