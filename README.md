@@ -43,16 +43,16 @@ sudo -l
 One way to speed up the ssh session is to use the same
 encrypted tunnel instead of having each authenticate again.
 ```bash
-# Edit /etc/ssh/ssh_config
-sudoedit /etc/ssh/ssh_config
-# Activate single authentication
-# Add the lines below Host *
+# Edit ~/.ssh/config
+nvim ~/.ssh/config
+# Add the lines below
 Host *
     ControlMaster auto 
     ControlPath ~/.ssh/%r@%h:%p
 ```
 
-Remember to reset SSH service for changes to update.
+### Restarting SSH Service
+
 ```bash
 sudo systemctl restart ssh
 ```
