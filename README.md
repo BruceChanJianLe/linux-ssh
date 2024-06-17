@@ -56,3 +56,25 @@ Host *
 ```bash
 sudo systemctl restart ssh
 ```
+
+### SSH Cipher
+
+Listing the available ciphers.
+```bash
+sudo sshd -T | grep ciphers
+```
+
+Using a specific cipher.
+```bash
+ssh -c blowfish username@remote_server_ip
+```
+
+### SSH with Compression
+
+Compression may or may not speed up the session,
+but it may be worth to try.
+```bash
+ssh -C -c blowfish username@remote_server_ip "find /"
+# Timing your ssh session
+time ssh -C -c blowfish username@remote_server_ip "find /"
+```
