@@ -37,3 +37,17 @@ yourusername    ALL=(ALL:ALL) ALL
 # Save, exit and try
 sudo -l
 ```
+
+### SSH for Speed
+
+One way to speed up the ssh session is to use the same
+encrypted tunnel instead of having each authenticate again.
+```bash
+# Edit /etc/ssh/ssh_config
+sudoedit /etc/ssh/ssh_config
+# Activate single authentication
+# Add the lines below Host *
+Host *
+    ControlMaster auto 
+    ControlPath ~/.ssh/%r@%h:%p
+```
