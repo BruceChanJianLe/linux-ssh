@@ -51,3 +51,8 @@ Host *
     ControlMaster auto 
     ControlPath ~/.ssh/%r@%h:%p
 ```
+
+Remember to reset SSH service for changes to update.
+```bash
+sudo systemctl restart ssh
+```
