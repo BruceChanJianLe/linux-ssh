@@ -16,7 +16,7 @@ ssh-add
 ### Password-less Remote Access
 
 ```bash
-ssh-copy-id ~/.ssh/id_cjl username@remote_server_ip
+ssh-copy-id -i ~/.ssh/id_cjl.pub username@remote_server_ip
 ```
 
 ### Pasword-less Remote with Sudo
