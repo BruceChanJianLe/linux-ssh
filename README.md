@@ -78,3 +78,27 @@ ssh -C -c blowfish username@remote_server_ip "find /"
 # Timing your ssh session
 time ssh -C -c blowfish username@remote_server_ip "find /"
 ```
+
+### SSH -X
+
+Sometimes you might wanna display GUI when performing ssh,
+you can achieve that by running:
+
+```bash
+# For example
+ssh -X remote_user@192.16.10.110
+```
+
+And sometimes, your ssh session can mess up. Resulting in a
+situation where you cannot copy things from within the terminal.
+
+
+In such cases, you will need to export two variables for it to work again.
+Of course, I assume that it is working the first time.
+
+```bash
+export DISPLAY=localhost:10.0
+export XAUTHORITY=~/.Xauthority
+```
+
+Now you should be able to copy directly from your terminal again :D
