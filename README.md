@@ -19,6 +19,24 @@ ssh-add
 ssh-copy-id -i ~/.ssh/id_cjl.pub username@remote_server_ip
 ```
 
+Sometimes, even after running `ssh-copy-id`, the remote server still
+prompts for you to input password. This can happen if your local machine
+does not know which identity file to use. An easy check would be:  
+
+```bash
+ssh-add -l
+```
+
+If the about result is empty or does not contain the identity file
+that you added to the remote server, this means that you will need
+to tell your local machine manaully.  
+
+Don't fred, run the below command to add your identity file and try
+again :D  
+
+```bash
+ssh-add .ssh/id_cjl```
+
 ### Pasword-less Remote with Sudo
 
 ```bash
