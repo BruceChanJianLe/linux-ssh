@@ -120,3 +120,32 @@ export XAUTHORITY=~/.Xauthority
 ```
 
 Now you should be able to copy directly from your terminal again :D
+
+### SSH with Arch Linux
+
+Assuming you are trying out arch linux and using gnome as your desktop environment.
+You will need to enable the ssh daemon service, ssh agent daemon service as well as
+the gcr-ssh-agent.service.
+
+Service Name | Description
+--- | ---
+sshd.service | This is a local system service, it is required if you want to use ssh.
+ssh-agent.service | This is a local system *user* service, it is required for starting ssh-agent.
+gcr-ssh-agent.service | This is anothe local system *user* service, it is required to eval ssh-agent, if you want to ssh into remote server after performing ssh-copy-id. This a systemd socket unit that manages the SSH agent for GNOME Keyring (GCR), enabling SSH key management and authentication through the keyring.
+
+So, now that you know what all these services do, let's see them in action.
+
+```bash
+# sshd
+sudo systemctl enable sshd.service
+sudo systemctl start sshd.service
+sudo systemctl status sshd.service
+# ssh-agent
+systemctl --user enable ssh-agent.service
+systemctl --user start ssh-agent.service
+systemctl --user status ssh-agent.service
+# gcr-ssh-agent
+systemctl --user enable gcr-ssh-agent.service
+systemctl --user start gcr-ssh-agent.service
+systemctl --user status gcr-ssh-agent.service
+```
